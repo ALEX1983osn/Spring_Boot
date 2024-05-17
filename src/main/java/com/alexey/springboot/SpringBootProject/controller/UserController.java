@@ -39,14 +39,14 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/editForm")
+    @PutMapping("/editForm")
     public String editForm(@RequestParam("userId") Long id, Model model) {
         User user = userService.update(id);
         model.addAttribute("user", user);
         return "info";
     }
 
-    @GetMapping("deleteUser")
+    @DeleteMapping("/{id}")
     public String deleteUser(@RequestParam("userId") Long id) {
         userService.deleteUser(id);
         return "redirect:/";
